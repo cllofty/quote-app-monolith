@@ -1,24 +1,33 @@
 package edu.cmu.mis.iccfb.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.annotations.NaturalId;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 
 @Entity
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@jsonid")
 public class Quote {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+
+
     private String text;
+
     private String source;
     
     
-    @ManyToOne(optional = false)
-    @NaturalId
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="authorId")
+    //@JsonManagedReference
     private Author author;
     
 

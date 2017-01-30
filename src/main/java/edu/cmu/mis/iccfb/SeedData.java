@@ -1,5 +1,8 @@
 package edu.cmu.mis.iccfb;
 
+import java.sql.SQLException;
+
+import org.h2.tools.Server;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +26,8 @@ public class SeedData {
     private static final Logger log = LoggerFactory.getLogger(SeedData.class);
 
     @Bean
-    public SeedData getBean() {
+    public SeedData getBean() throws SQLException {
+    	
         
         Author a1 = new Author("Douglas Adams");
         Author a2 = new Author("Gautama Buddha");
@@ -53,11 +57,11 @@ public class SeedData {
         quoteService.save(q2);
         quoteService.save(q3);
         
-        log.info("Quoates found with findAll():");
-        log.info("-------------------------------");
-        for (Quote m : quoteService.findAll()) {
-            log.info(m.toString());
-        }
+//        log.info("Quoates found with findAll():");
+//        log.info("-------------------------------");
+//        for (Quote m : quoteService.findAll()) {
+//            log.info(m.toString());
+//        }
         return new SeedData();
     }
 }
