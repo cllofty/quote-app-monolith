@@ -36,7 +36,11 @@ public class QuoteController {
         if (a == null) {
             System.out.println("Saving author");
             authorService.save(quote.getAuthor());
+            
+            a = authorService.findByName(quote.getAuthor().getName());
         }
+        
+        quote.setAuthor(a);
         
         System.out.println("Saving quote");
         quoteService.save(quote);
