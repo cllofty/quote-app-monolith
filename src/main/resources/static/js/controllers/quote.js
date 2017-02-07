@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('app.controllers', [])
+angular.module('app.controllers')
 
 .controller('RandomQuoteCtrl', function($scope, QuoteService) {
 	QuoteService.random()

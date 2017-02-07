@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('app.services', ['ngResource'])
+angular.module('app.services')
 
 .factory('QuoteService', function($resource) {
 	return $resource('/api/quote/:id', {id:'@_id'}, {

@@ -19,4 +19,17 @@ body {
     padding-top: 200px;
 }
 
+.author-quote {
+	font-size: large;
+	padding-left: 40px;
+}
+
+.author-name {
+	font-size: xx-large;
+}
+
+a {
+	color: #CCCCCC;	
+}
+
 
