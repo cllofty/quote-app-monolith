@@ -39,6 +39,7 @@ public class QuoteController {
         else {
         	quote.setAuthor(a);
         }
+
         
         System.out.println("Saving quote");
         quoteService.save(quote);

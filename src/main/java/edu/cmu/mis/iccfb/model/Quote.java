@@ -28,6 +28,7 @@ public class Quote {
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="authorId")
     //@JsonManagedReference
+
     private Author author;
     
 
